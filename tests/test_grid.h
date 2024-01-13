@@ -1,9 +1,9 @@
-/* Copyright 2023 Arjun Aravind */
 #ifndef TESTS_TEST_GRID_H_
 #define TESTS_TEST_GRID_H_
 
 #include<utility>
 #include<vector>
+#include<assert.h>
 
 #include"../src/grid.h"
 

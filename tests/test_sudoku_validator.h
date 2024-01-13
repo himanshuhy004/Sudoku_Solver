@@ -1,4 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
 #ifndef TESTS_TEST_SUDOKU_VALIDATOR_H_
 #define TESTS_TEST_SUDOKU_VALIDATOR_H_
 

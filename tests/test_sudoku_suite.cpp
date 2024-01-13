@@ -1,5 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
-
 #include"../tests/test_grid.h"
 #include"../tests/test_coord_utils.h"
 #include"../tests/test_sudoku_solver.h"

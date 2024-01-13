@@ -1,4 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
 #ifndef SRC_GRID_H_
 #define SRC_GRID_H_
 
@@ -10,6 +9,7 @@
 #include<string>
 #include<utility>
 #include<vector>
+#include<algorithm>
 
 #include"../src/coord.h"
 
@@ -17,11 +17,11 @@ namespace sudoku {
 
 class Grid {
     /* A data structure that holds the Sudoku puzzle. */
-    private:
+    public:
     std::array<std::array<int, 9>, 9> grid;
     std::set<Coord> coords_that_were_pre_filled;
 
-    public:
+    // public:
     Grid() {
         std::array<int, 9> filled_array = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         grid.fill(filled_array);
@@ -220,6 +220,15 @@ std::ostream& operator<< (std::ostream& out, Grid grid) {
         if (row_index%3 == 2) out << "+-------+-------+-------+\n";
     }
     return out;
+}
+std::istream& operator>> (std::istream& in, Grid &grid) {
+
+    for (int row_index=0; row_index < GRID_LEN; row_index++) {
+        for (int col_index=0; col_index < GRID_LEN; col_index++) {
+            in >> grid.grid[row_index][col_index];
+        }
+    }
+    return in;
 }
 
 }  // namespace sudoku

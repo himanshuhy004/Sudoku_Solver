@@ -1,6 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
-/* A basic example as seen in the project's README. */
-
 #include<iostream>
 #include"../src/grid.h"
 
@@ -43,7 +40,7 @@ int main() {
     // Method 3: Read the initial state of the puzzle
     // from a file.
 
-    grid.set_initial_state_from_file("samples/sample1.txt");
+    grid.set_initial_state_from_file("sample1.txt");
     std::cout << grid << std::endl;
 
     return 0;

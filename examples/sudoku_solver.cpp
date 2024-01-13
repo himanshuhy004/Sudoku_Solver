@@ -1,32 +1,45 @@
-/* Copyright 2023 Arjun Aravind */
-/* A basic example as seen in the project's README. */
-
 #include<iostream>
 #include"../src/sudoku_solver.h"
 #include"../src/sudoku_validator.h"
+#include"../src/sudoku_generator.h"
 
 int main() {
-    sudoku::Grid grid({{
-        {{ 0, 0, 0, 0, 0, 0, 6, 8, 0 }},  // The 0s represent blank cells.
-        {{ 0, 0, 0, 0, 7, 3, 0, 0, 9 }},
-        {{ 3, 0, 9, 0, 0, 0, 0, 4, 5 }},
-        {{ 4, 9, 0, 0, 0, 0, 0, 0, 0 }},
-        {{ 8, 0, 3, 0, 5, 0, 9, 0, 2 }},
-        {{ 0, 0, 0, 0, 0, 0, 0, 3, 6 }},
-        {{ 9, 6, 0, 0, 0, 0, 3, 0, 8 }},
-        {{ 7, 0, 0, 6, 8, 0, 0, 0, 0 }},
-        {{ 0, 2, 8, 0, 0, 0, 0, 0, 0 }}
-    }});
+    int type;
+    std::cout << "Choose method: \n";
+    std::cout << "1. Random Puzzle\n2. Input Puzzle\n";
 
-    sudoku::solve(&grid);
+    std::cin >> type;
+    if(type==1){
+        sudoku::Grid grid = sudoku::generate_puzzle();
+        std::cout << grid << std::endl;
 
-    std::cout << grid << std::endl;
+        sudoku::solve(&grid);
 
-    if (sudoku::is_valid_solution(grid)) {
-        std::cout << "Solution is valid!\n";
-    } else {
-        std::cout << "DEFCON 4! Something isn't working.\n";
+        if (sudoku::is_valid_solution(grid)) {
+            std::cout << "Solution is valid!\n";
+            std::cout << grid << std::endl;
+        } else {
+            std::cout << "Something isn't working.\n";
+        }
     }
+    else if (type==2){
+        std::cout << "Enter the unsolved Sudoku grid:\n";
+        std::cout << "Note: Enter 'n' for 9 rows and 9 columns such that 0<=n<=9 where 0 is an empty cell\n";
+        std::cout << "+-------+-------+-------+\n";
+        sudoku:: Grid grid;
+        std::cin >> grid;
+        std::cout << grid << '\n';
+        sudoku::solve(&grid);
 
+        if (sudoku::is_valid_solution(grid)) {
+            std::cout << "Solution is valid!\n";
+            std::cout << grid << std::endl;
+        } else {
+            std::cout << "Something isn't working.\n";
+        }
+    }
+    else{
+        std::cout << "INVALID TYPE!\n";
+    }
     return 0;
 }

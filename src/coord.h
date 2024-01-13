@@ -1,4 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
 #ifndef SRC_COORD_H_
 #define SRC_COORD_H_
 

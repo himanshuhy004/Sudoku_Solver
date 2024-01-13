@@ -1,6 +1,3 @@
-/* Copyright 2023 Arjun Aravind */
-/* A basic example as seen in the project's README. */
-
 #include<iostream>
 #include"../src/sudoku_generator.h"
 
